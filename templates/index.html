@@ -1,0 +1,100 @@
+<html>
+
+ 
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <head>
+    <title>Video Streaming</title>
+  </head>
+ 
+
+<style>
+    .container {
+        width: 100%;
+	hight:100%
+        margin: 1 auto;
+        padding: 20px;
+        background: #f0e68c;
+    }
+</style>
+  <body>
+    
+     
+ 
+<div class="container">
+
+ 
+ 
+
+<h1 align="center" >Live Streaming At : 
+<script type="text/javascript">
+document.write ('<span id="date-time">', new Date().toLocaleString(), '<\/span>.')
+if (document.getElementById) onload = function () {
+	setInterval ("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
+}
+</script>
+</h1>
+    <img id="theImage" style="width:100%; height:100%;"  class="fullscreen" src="{{ url_for('video_feed') }}" onClick="makeFullScreen()"></img>
+ 
+</div>
+
+
+<style>
+      .fullscreen:-webkit-full-screen {
+      width: auto !important;
+      height: auto !important;
+      margin:auto !important;
+  }
+     .fullscreen:-moz-full-screen {
+      width: auto !important;
+      height: auto !important;
+      margin:auto !important;
+  }
+     .fullscreen:-ms-fullscreen {
+      width: auto !important;
+      height: auto !important;
+      margin:auto !important;
+  }     
+     </style>
+     <script>
+        function makeFullScreen() {
+         var divObj = document.getElementById("theImage");
+       //Use the specification method before using prefixed versions
+      if (divObj.requestFullscreen) {
+        divObj.requestFullscreen();
+      }
+      else if (divObj.msRequestFullscreen) {
+        divObj.msRequestFullscreen();               
+      }
+      else if (divObj.mozRequestFullScreen) {
+        divObj.mozRequestFullScreen();      
+      }
+      else if (divObj.webkitRequestFullscreen) {
+        divObj.webkitRequestFullscreen();       
+      } else {
+        console.log("Fullscreen API is not supported");
+      } 
+
+    }
+     </script>
+
+  </head>
+   
+
+     
+
+   
+</html>
+
+
+
+
+
+
+   
